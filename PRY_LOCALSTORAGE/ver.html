@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Nombre</title>
+    <link rel="stylesheet" href="./public/bootstrap-5.3.5-dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container py-5">
+    <h1>Datos del usuario:</h1>
+    <p id="txt_resultado_nombre"></p>
+    <div class="mt-2">
+    <button type="button" class="btn btn-danger py-2" onclick="eliminarUsuario()">Eliminar Usuario</button>
+    <a href="./index.html" class="btn btn-warning py-2">Cancelar</a>
+    </div>
+</div>
+
+<script src="./public/bootstrap-5.3.5-dist/js/bootstrap.min.js"></script>    
+<script src="./public/js/mostrar_usuario.js"></script>
+
+<script>
+    var res_nombre = document.getElementById('txt_resultado_nombre');
+    var nombre_user_ls = localStorage.getItem("nombre_user");
+    res_nombre.innerHTML = nombre_user_ls; 
+
+    function eliminarUsuario(){
+        localStorage.removeItem("nombre_user");
+        alert('El usuario se ha eliminado')
+
+        location.reload();
+    }
+</script>
+</body>
+</html>
