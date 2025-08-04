@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧮 Calculadora-Fetch</title>
+    <title>🧮 Calculadora Elegante</title>
     <!-- Bootstrap CSS -->
     <link href="./public/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
@@ -16,7 +16,7 @@
             <div class="col-xl-10 col-lg-11">
                 <!-- Título principal elegante -->
                 <h1 class="main-title">
-                    🧮 Calculadora-Fetch
+                    🧮 Calculadora 
                 </h1>
                 <p class="subtitle">
                     Herramientas matemáticas simples y útiles
@@ -24,31 +24,9 @@
 
                 <!-- Tarjetas en el orden original -->
                 <div class="row g-4">
-                    <!-- 1. Calculadora de Edad (ahora primero) -->
+                    <!-- 1. Suma de dos números (original) -->
                     <div class="col-lg-6 col-md-6">
-                        <div class="calculator-card card-edad fade-in-card delay-1" data-bs-toggle="modal" data-bs-target="#modalEdad">
-                            <div class="card-icon">🎂</div>
-                            <h5 class="card-title">Calculadora de Edad</h5>
-                            <p class="card-description">
-                                Calcula tu edad exacta basada en tu año de nacimiento
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- 2. Detector Par/Impar (ahora segundo) -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="calculator-card card-parimpar fade-in-card delay-2" data-bs-toggle="modal" data-bs-target="#modalParImpar">
-                            <div class="card-icon">🔢</div>
-                            <h5 class="card-title">Detector Par/Impar</h5>
-                            <p class="card-description">
-                                Determina si un número es par o impar instantáneamente
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- 3. Suma de Números (ahora tercero) -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="calculator-card card-suma fade-in-card delay-3" data-bs-toggle="modal" data-bs-target="#modalSuma">
+                        <div class="calculator-card card-suma fade-in-card delay-1" data-bs-toggle="modal" data-bs-target="#modalSuma">
                             <div class="card-icon">➕</div>
                             <h5 class="card-title">Suma de Números</h5>
                             <p class="card-description">
@@ -57,16 +35,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. Tabla de Multiplicar (ahora cuarto) -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="calculator-card card-tabla fade-in-card delay-4" data-bs-toggle="modal" data-bs-target="#modalTabla">
-                            <div class="card-icon">✖️</div>
-                            <h5 class="card-title">Tabla de Multiplicar</h5>
-                            <p class="card-description">
-                                Genera la tabla de multiplicar completa de cualquier número
-                            </p>
-                        </div>
-                    </div>                    <!-- 2. Tabla de multiplicar (original) -->
+                    <!-- 2. Tabla de multiplicar (original) -->
                     <div class="col-lg-6 col-md-6">
                         <div class="calculator-card card-tabla fade-in-card delay-2" data-bs-toggle="modal" data-bs-target="#modalTabla">
                             <div class="card-icon">✖️</div>
@@ -319,6 +288,173 @@
                 </div>
             </div>
         </div>
+    </div>    <!-- Modal 2: Tabla de multiplicar -->
+    <div class="modal fade" id="modalTabla" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" id="modalTabla">
+                    <h5 class="modal-title">Tabla de multiplicar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formTabla">
+                        <div class="mb-3">
+                            <label for="numeroTabla" class="form-label">Número para la tabla:</label>
+                            <input type="number" class="form-control" id="numeroTabla" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Generar Tabla</button>
+                    </form>
+                    <div id="resultadoTabla" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal 3: Par o Impar -->
+    <div class="modal fade" id="modalParImpar" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" id="modalParImpar">
+                    <h5 class="modal-title">Verificar Par o Impar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formParImpar">
+                        <div class="mb-3">
+                            <label for="numeroParImpar" class="form-label">Ingresa un número:</label>
+                            <input type="number" class="form-control" id="numeroParImpar" required>
+                        </div>
+                        <button type="submit" class="btn btn-info">Verificar</button>
+                    </form>
+                    <div id="resultadoParImpar" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Calcular Edad -->
+    <div class="modal fade" id="modalEdad" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" id="modalEdad">
+                    <h5 class="modal-title">Calcular Edad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEdad">
+                        <div class="mb-3">
+                            <label for="anoNacimiento" class="form-label">Año de nacimiento:</label>
+                            <input type="number" class="form-control" id="anoNacimiento" min="1900" max="2025" required>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Calcular Edad</button>
+                    </form>
+                    <div id="resultadoEdad" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./public/bootstrap-5.3.7-dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Función para el formulario de suma
+        document.getElementById('formSuma').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var numero1 = document.getElementById('numero1').value;
+            var numero2 = document.getElementById('numero2').value;
+            
+            var datos = new FormData();
+            datos.append('numero1', numero1);
+            datos.append('numero2', numero2);
+            
+            fetch('app/suma.php', {
+                method: 'POST',
+                body: datos
+            })
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(resultado) {
+                document.getElementById('resultadoSuma').innerHTML = '<div class="alert alert-success">' + resultado + '</div>';
+            })
+            .catch(function(error) {
+                document.getElementById('resultadoSuma').innerHTML = '<div class="alert alert-danger">Error: ' + error + '</div>';
+            });
+        });
+
+        // Función para el formulario de tabla de multiplicar
+        document.getElementById('formTabla').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var numero = document.getElementById('numeroTabla').value;
+            
+            var datos = new FormData();
+            datos.append('numero', numero);
+            
+            fetch('app/tabla.php', {
+                method: 'POST',
+                body: datos
+            })
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(resultado) {
+                document.getElementById('resultadoTabla').innerHTML = '<div class="alert alert-success">' + resultado + '</div>';
+            })
+            .catch(function(error) {
+                document.getElementById('resultadoTabla').innerHTML = '<div class="alert alert-danger">Error: ' + error + '</div>';
+            });
+        });
+
+        // Función para el formulario par o impar
+        document.getElementById('formParImpar').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var numero = document.getElementById('numeroParImpar').value;
+            
+            var datos = new FormData();
+            datos.append('numero', numero);
+            
+            fetch('app/parimpar.php', {
+                method: 'POST',
+                body: datos
+            })
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(resultado) {
+                document.getElementById('resultadoParImpar').innerHTML = '<div class="alert alert-success">' + resultado + '</div>';
+            })
+            .catch(function(error) {
+                document.getElementById('resultadoParImpar').innerHTML = '<div class="alert alert-danger">Error: ' + error + '</div>';
+            });
+        });
+
+        // Función para el formulario de edad
+        document.getElementById('formEdad').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var ano = document.getElementById('anoNacimiento').value;
+            
+            var datos = new FormData();
+            datos.append('ano', ano);
+            
+            fetch('app/edad.php', {
+                method: 'POST',
+                body: datos
+            })
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(resultado) {
+                document.getElementById('resultadoEdad').innerHTML = '<div class="alert alert-success">' + resultado + '</div>';
+            })
+            .catch(function(error) {
+                document.getElementById('resultadoEdad').innerHTML = '<div class="alert alert-danger">Error: ' + error + '</div>';
+            });
+        });
+    </script>
 </body>
 </html>
