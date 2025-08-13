@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Usuarios</title>
+    <link rel="stylesheet" href="public/lib/bootstrap-5.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/styles.css">
+    <link rel="stylesheet" href="public/css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="card welcome-card">
+            <div class="welcome-header">
+                <h1>Sistema de Gestión de Usuarios</h1>
+                <p>Administra usuarios y notas de manera eficiente</p>
+            </div>
+            <div class="welcome-body">
+                <p class="text-center mb-4">Bienvenido al sistema de gestión de usuarios. Aquí puedes crear, leer, actualizar y eliminar usuarios, así como gestionar sus notas.</p>
+                
+                <div class="button-row d-flex justify-content-center gap-2">
+                    <a href="./app/crear.php" class="btn btn-custom btn-primary-custom">✨ Crear Usuario</a>
+                    <a href="./app/listar.php" class="btn btn-custom btn-secondary-custom">👥 Ver Usuarios</a>
+                    <a href="./app/mostrarnotas.php" class="btn btn-custom btn-info-custom">📝 Ver Notas</a>
+                </div>
+                <div class="button-row">
+                    <a href="./app/ingresarnotas.php" class="btn btn-custom btn-dark-custom full-width-btn">➕ Ingresar Notas</a>
+                </div>
+                
+                <!-- Botón de demo para las notificaciones -->
+                <div class="text-center mt-3">
+                    <button onclick="showDemoNotifications()" class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-bell"></i> Demo Notificaciones
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="./public/lib/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="./public/js/toast.js"></script>
+<script>
+function showDemoNotifications() {
+    setTimeout(() => toastNotification.success('¡Operación exitosa! Sistema funcionando correctamente.'), 200);
+    setTimeout(() => toastNotification.info('Esta es una notificación informativa.'), 800);
+    setTimeout(() => toastNotification.warning('Advertencia: Revisa los datos ingresados.'), 1400);
+    setTimeout(() => toastNotification.error('Error simulado para demostración.'), 2000);
+}
+</script>
+</body>
+</html>
